@@ -1,0 +1,15 @@
+[Unit]
+Description=DoAide Timer Web App
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/doaide-timer
+ExecStart=/usr/bin/node node_modules/.bin/vite preview --host 172.18.0.1 --port 3058
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

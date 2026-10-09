@@ -612,6 +612,91 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 
+/* ─── Meeting timer ─── */
+.meeting-timer { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.meeting-timer h2 { margin-bottom: 8px; }
+.meeting-subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; text-align: center; }
+
+.meeting-presets {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; width: 100%; max-width: 400px; margin-bottom: 20px;
+}
+.meeting-presets .preset-btn.active { border-color: var(--accent); color: var(--accent); }
+
+.meeting-custom {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+}
+.meeting-custom label { font-size: 0.85rem; color: var(--text-secondary); }
+.meeting-custom-input {
+  width: 80px; padding: 8px 12px; border-radius: 10px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-primary); font-size: 1rem; text-align: center;
+}
+.meeting-custom-input:focus { outline: none; border-color: var(--accent); }
+
+.meeting-alerts { width: 100%; max-width: 400px; margin-bottom: 24px; }
+.meeting-alerts h3 { font-size: 0.9rem; margin-bottom: 12px; }
+
+.alert-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.alert-chip {
+  padding: 6px 14px; border-radius: 20px; font-size: 0.8rem;
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text-secondary); cursor: pointer; transition: all 0.15s;
+}
+.alert-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+.alert-chip.active { background: var(--accent); color: #fff; border-color: transparent; }
+
+.meeting-display {
+  width: 100%; max-width: 500px; text-align: center; margin: 24px 0;
+}
+
+.meeting-remaining {
+  display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;
+}
+.meeting-time-label, .meeting-overtime-label {
+  font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 4px;
+}
+.meeting-overtime-label { color: var(--danger); }
+.meeting-time-big {
+  font-size: 3.5rem; font-weight: 700; font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.meeting-remaining.overtime .meeting-time-big { color: var(--danger); }
+
+.meeting-progress-bar {
+  width: 100%; height: 8px; border-radius: 4px;
+  background: var(--bg-card); overflow: hidden; margin-bottom: 12px;
+}
+.meeting-progress-fill {
+  height: 100%; border-radius: 4px;
+  background: var(--accent); transition: width 0.3s linear;
+}
+.meeting-progress-fill.overtime { background: var(--danger); }
+
+.meeting-elapsed {
+  font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;
+}
+
+.meeting-alert-indicators {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+}
+.alert-indicator {
+  font-size: 0.75rem; color: var(--text-secondary);
+  padding: 4px 10px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border);
+}
+.alert-indicator.fired { color: var(--success); border-color: var(--success); }
+
+/* ─── Blog link ─── */
+.blog-link {
+  display: flex; align-items: center; gap: 6px;
+  color: var(--text-secondary); font-size: 0.8rem;
+  text-decoration: none; padding: 8px 14px; border-radius: 10px;
+  transition: color 0.15s, background 0.15s;
+}
+.blog-link:hover { color: var(--text-primary); background: var(--bg-card); }
+
 /* ─── Animations ─── */
 @keyframes pulse-glow {
   0%, 100% { filter: drop-shadow(0 0 12px var(--accent-glow)); }

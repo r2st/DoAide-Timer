@@ -1,8 +1,8 @@
 import React from 'react'
 
 const THEMES = [
-  { id: 'dark', label: 'Dark', color: '#0a0a1a' },
   { id: 'light', label: 'Light', color: '#f0f0f5' },
+  { id: 'dark', label: 'Dark', color: '#0a0a1a' },
   { id: 'forest', label: 'Forest', color: '#0d1f0d' },
   { id: 'ocean', label: 'Ocean', color: '#0a1628' },
   { id: 'sunset', label: 'Sunset', color: '#1a0f08' },
@@ -13,12 +13,12 @@ export default function Header({ theme, setTheme, isFullscreen, toggleFullscreen
     <header className="app-header">
       <div className="logo">
         <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-          <circle cx="16" cy="16" r="14" stroke="#F0B429" strokeWidth="2.5" />
-          <line x1="16" y1="8" x2="16" y2="16" stroke="#F0B429" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="16" y1="16" x2="22" y2="20" stroke="#F0B429" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="16" cy="16" r="2" fill="#F0B429" />
+          <circle cx="16" cy="16" r="14" stroke="var(--accent)" strokeWidth="2.5" />
+          <line x1="16" y1="8" x2="16" y2="16" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="16" y1="16" x2="22" y2="20" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="16" cy="16" r="2" fill="var(--accent)" />
         </svg>
-        <span className="logo-text">DoAide <em>Timer</em></span>
+        <span className="logo-text">DoAide <span className="logo-pipe">|</span> <em>Timer</em></span>
       </div>
       <div className="header-actions">
         <div className="theme-switcher">

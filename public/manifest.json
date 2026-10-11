@@ -4,8 +4,8 @@
   "description": "Free Pomodoro timer, stopwatch, world clock, and productivity tools.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a1a",
-  "theme_color": "#F0B429",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0D9488",
   "orientation": "any",
   "icons": [
     {

@@ -9,7 +9,7 @@ describe('App', () => {
 
   it('renders without crashing', () => {
     render(<App />)
-    expect(screen.getByText('DoAide')).toBeInTheDocument()
+    expect(screen.getAllByText(/DoAide/).length).toBeGreaterThanOrEqual(1)
   })
 
   it('displays navigation items', () => {

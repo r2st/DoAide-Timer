@@ -24,7 +24,7 @@ const NAV_ITEMS = [
 ]
 
 export default function App() {
-  const [theme, setTheme] = useLocalStorage('doaide-theme', 'dark')
+  const [theme, setTheme] = useLocalStorage('doaide-theme', 'light')
   const [activePage, setActivePage] = useState('pomodoro')
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [showShare, setShowShare] = useState(false)
@@ -119,6 +119,11 @@ export default function App() {
           )}
         </main>
       </div>
+
+      <footer className="app-footer">
+        <span className="doaide-badge">A DoAide Product</span>
+        <span>&copy; {new Date().getFullYear()} <a href="https://doaide.com">DoAide</a></span>
+      </footer>
 
       {showShare && <ShareModal onClose={() => setShowShare(false)} />}
     </div>

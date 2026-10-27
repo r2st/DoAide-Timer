@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "!/blog/**", "destination": "/index.html" }
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
+    { "source": "/:path([^.]+)", "destination": "/index.html" }
   ]
 }

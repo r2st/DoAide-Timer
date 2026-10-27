@@ -78,6 +78,7 @@ export default function PomodoroTimer() {
 
   return (
     <div className="pomodoro-timer">
+      <h1 className="visually-hidden">Pomodoro Timer</h1>
       <div className="pomodoro-modes">
         {Object.entries(MODES).map(([key, { label }]) => (
           <button

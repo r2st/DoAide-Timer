@@ -161,7 +161,7 @@ export default function MeetingTimer() {
   if (showSetup) {
     return (
       <div className="meeting-timer">
-        <h2>Meeting Timer</h2>
+        <h1>Meeting Timer</h1>
         <p className="meeting-subtitle">Set your meeting duration and get alerts before time runs out</p>
 
         <div className="meeting-presets">
@@ -222,7 +222,7 @@ export default function MeetingTimer() {
 
   return (
     <div className="meeting-timer">
-      <h2>Meeting Timer</h2>
+      <h1>Meeting Timer</h1>
 
       <div className="meeting-display">
         <div className={`meeting-remaining ${overtime ? 'overtime' : ''}`}>

@@ -11,6 +11,8 @@ import AmbientSounds from './components/AmbientSounds'
 import TodoList from './components/TodoList'
 import MeetingTimer from './components/MeetingTimer'
 import ShareModal from './components/ShareModal'
+import useSEO from './hooks/useSEO'
+import { pathForPage, routes } from './routeMeta'
 
 const NAV_ITEMS = [
   { id: 'pomodoro', label: 'Pomodoro', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2 2" /><path d="M5 3L2 6" /><path d="M22 6l-3-3" /><line x1="6" y1="19" x2="4" y2="21" /><line x1="18" y1="19" x2="20" y2="21" /></svg> },
@@ -23,9 +25,19 @@ const NAV_ITEMS = [
   { id: 'sounds', label: 'Sounds', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></svg> },
 ]
 
+// Each timer tool has its own URL so it can be indexed; Stats and Sounds are
+// panels on whatever URL is open. Unknown paths show the Pomodoro timer.
+function currentPath() {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  return pathForPage(routes.find((r) => r.path === path)?.page) ? path : '/'
+}
+
+const pageFor = (path) => routes.find((r) => r.path === path)?.page ?? 'pomodoro'
+
 export default function App() {
   const [theme, setTheme] = useLocalStorage('doaide-theme', 'light')
-  const [activePage, setActivePage] = useState('pomodoro')
+  const [path, setPath] = useState(currentPath)
+  const [activePage, setActivePage] = useState(() => pageFor(path))
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [showShare, setShowShare] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -33,6 +45,27 @@ export default function App() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
+
+  useSEO(path)
+
+  useEffect(() => {
+    const onPop = () => {
+      const next = currentPath()
+      setPath(next)
+      setActivePage(pageFor(next))
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
+  const openPage = (id) => {
+    const next = pathForPage(id)
+    if (next && next !== path) {
+      window.history.pushState(null, '', next)
+      setPath(next)
+    }
+    setActivePage(id)
+  }
 
   const toggleFullscreen = useCallback(() => {
     if (!document.fullscreenElement) {
@@ -89,7 +122,7 @@ export default function App() {
               <button
                 key={item.id}
                 className={`nav-item ${activePage === item.id ? 'active' : ''}`}
-                onClick={() => { setActivePage(item.id); setSidebarOpen(false) }}
+                onClick={() => { openPage(item.id); setSidebarOpen(false) }}
               >
                 {item.icon}
                 <span className="nav-label">{item.label}</span>

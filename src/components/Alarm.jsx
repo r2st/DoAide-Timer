@@ -52,7 +52,7 @@ export default function Alarm() {
 
   return (
     <div className="alarm-page">
-      <h2>Alarms</h2>
+      <h1>Alarms</h1>
       <div className="alarm-form card">
         <div className="alarm-inputs">
           <input type="time" value={newTime} onChange={(e) => setNewTime(e.target.value)} className="alarm-time-input" />

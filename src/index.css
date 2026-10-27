@@ -326,7 +326,7 @@ body {
 
 /* ─── Custom timer ─── */
 .custom-timer { display: flex; flex-direction: column; align-items: center; width: 100%; }
-.custom-timer h2 { margin-bottom: 24px; }
+.custom-timer h1 { margin-bottom: 24px; }
 
 .time-input-group {
   display: flex; align-items: center; gap: 8px; margin-bottom: 24px;
@@ -356,7 +356,7 @@ body {
 
 /* ─── Stopwatch ─── */
 .stopwatch { display: flex; flex-direction: column; align-items: center; width: 100%; }
-.stopwatch h2 { margin-bottom: 16px; }
+.stopwatch h1 { margin-bottom: 16px; }
 .stopwatch-display {
   font-size: 3.5rem; font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -415,7 +415,7 @@ body {
 
 /* ─── Alarm ─── */
 .alarm-page { width: 100%; }
-.alarm-page h2 { margin-bottom: 20px; }
+.alarm-page h1 { margin-bottom: 20px; }
 
 .alarm-form { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
 .alarm-inputs { display: flex; gap: 8px; flex: 1; }
@@ -495,7 +495,7 @@ body {
 
 /* ─── Ambient sounds ─── */
 .ambient-sounds { width: 100%; }
-.ambient-sounds h2 { margin-bottom: 4px; }
+.ambient-sounds h1 { margin-bottom: 4px; }
 .ambient-subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px; }
 
 .sounds-grid {
@@ -632,7 +632,7 @@ body {
 
 /* ─── Meeting timer ─── */
 .meeting-timer { display: flex; flex-direction: column; align-items: center; width: 100%; }
-.meeting-timer h2 { margin-bottom: 8px; }
+.meeting-timer h1 { margin-bottom: 8px; }
 .meeting-subtitle { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; text-align: center; }
 
 .meeting-presets {
@@ -795,4 +795,13 @@ body {
 
   .clocks-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .clock-card { padding: 14px 10px; }
+}
+
+/* Each view's title is its page h1; keep the size the h2 it replaced had. */
+.custom-timer h1, .stopwatch h1, .alarm-page h1, .ambient-sounds h1,
+.meeting-timer h1, .world-clock-header h1, .stats-header h1 { font-size: 1.5em; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }

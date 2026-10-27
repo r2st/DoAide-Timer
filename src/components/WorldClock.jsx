@@ -90,7 +90,7 @@ export default function WorldClock() {
   return (
     <div className="world-clock">
       <div className="world-clock-header">
-        <h2>World Clock</h2>
+        <h1>World Clock</h1>
         <button className="control-btn small" onClick={() => setShowAdd(!showAdd)}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
           Add City

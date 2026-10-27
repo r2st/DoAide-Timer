@@ -54,7 +54,7 @@ export default function AmbientSounds({ compact }) {
 
   return (
     <div className="ambient-sounds">
-      <h2>Ambient Sounds</h2>
+      <h1>Ambient Sounds</h1>
       <p className="ambient-subtitle">Background sounds to help you focus</p>
       <div className="sounds-grid">
         {AMBIENT_SOUNDS.map((s) => (

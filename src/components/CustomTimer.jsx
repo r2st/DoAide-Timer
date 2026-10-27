@@ -65,7 +65,7 @@ export default function CustomTimer() {
   if (!started) {
     return (
       <div className="custom-timer">
-        <h2>Custom Timer</h2>
+        <h1>Custom Timer</h1>
         <div className="time-input-group">
           <div className="time-input-col">
             <input type="number" min="0" max="23" value={inputH} onChange={(e) => setInputH(Math.max(0, +e.target.value))} />
@@ -97,7 +97,7 @@ export default function CustomTimer() {
 
   return (
     <div className="custom-timer">
-      <h2>Custom Timer</h2>
+      <h1>Custom Timer</h1>
       <CircularTimer
         progress={timer.progress}
         timeDisplay={formatTime(timer.remaining)}

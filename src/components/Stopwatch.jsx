@@ -68,7 +68,7 @@ export default function Stopwatch() {
 
   return (
     <div className="stopwatch">
-      <h2>Stopwatch</h2>
+      <h1>Stopwatch</h1>
       <div className="stopwatch-display">{formatTime(elapsed)}</div>
       <div className="timer-controls">
         {!isRunning ? (

@@ -6,7 +6,7 @@
   "description": "DoAide Timer — Free Pomodoro & Productivity Timer",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender-routes.mjs",
     "preview": "vite preview",
     "test": "vitest run"
   },
